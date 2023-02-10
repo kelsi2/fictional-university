@@ -88,8 +88,10 @@ class Search {
 				}
           ${combinedResults
 						.map(
-							(post) =>
-								`<li><a href="${post.link}">${post.title.rendered}</a></li>`
+							(item) =>
+								`<li><a href="${item.link}">${item.title.rendered}</a>${
+									item.type === "post" ? ` by ${item.authorName}` : ""
+								}</li>`
 						)
 						.join("")}
           ${combinedResults && combinedResults.length ? "</ul>" : ""}
